@@ -55,4 +55,10 @@ var Note = React.createClass({
     }
 });
 
-React.render(<Note text="Hello world"/>, document.getElementById('react-container'));
+var Board = React.createClass({
+    render: function(){
+        return <div className="board"></div>
+    }
+
+});
+React.render(<Board/>, document.getElementById('react-container'));
