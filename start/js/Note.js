@@ -7,7 +7,11 @@ var Note = React.createClass({
         this.setState({editing: true});
     },
     save: function () {
-        var val = this.refs.newText.getDOMNode().value;
+        var val = this
+            .refs
+            .newText
+            .getDOMNode()
+            .value;
         alert("TODO: Save note value " + val);
         this.setState({editing: false});
     },
@@ -56,8 +60,22 @@ var Note = React.createClass({
 });
 
 var Board = React.createClass({
-    render: function(){
-        return <div className="board"></div>
+    getInitialState: function () {
+        return {
+            notes: ["Call Mike", "Email Lee", "Make dentist appointment", "Send Proposal"]
+        };
+    },
+    render: function () {
+        return (
+            <div className="board">
+                {this
+                    .state
+                    .notes
+                    .map(function (note, i) {
+                        return (<Note key={i} text={note}/>);
+                    })}
+            </div>
+        );
     }
 
 });
